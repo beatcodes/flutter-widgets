@@ -7,8 +7,22 @@ class ConsumerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (BuildContext context, CartModel cartModel, Widget child) {
-      return Text('${cartModel.cartList[cartModel.cartList.length - 1].name}');
-    });
+    CartModel cartModel = Provider.of<CartModel>(context, listen: false);
+    CartItem cartItem = cartModel.cartList.last;
+    return Column(
+      children: <Widget>[
+        Consumer(builder: (BuildContext context, CartModel cartModel, Widget child) {
+          return Text('${cartModel.cartList[cartModel.cartList.length - 1].name}');
+        }),
+        Container(
+          margin: EdgeInsets.all(20),
+          width: 200,
+          decoration: BoxDecoration(
+            color: Colors.yellow
+          ),
+          child: Text('使用Provider.of<CartModel>(context), 获取cartItem: name: ${cartItem.name} ,price: ${cartItem.price}'),
+        )
+      ],
+    );
   }
 }

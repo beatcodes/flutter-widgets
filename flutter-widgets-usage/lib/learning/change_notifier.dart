@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/commons/tools/log.dart';
+import 'package:flutter_app/commons/tools/toast.dart';
 import 'package:flutter_app/datamodel/cart_model.dart';
 import 'package:provider/provider.dart';
+import 'dart:math';
 
 import 'consumer_widget.dart';
 
@@ -83,14 +85,15 @@ class _ChangeNotifierScreenState extends State<ChangeNotifierScreen> {
               left: 10,
               child: ConsumerScreen(),
             ),
-
             Positioned(
                 bottom: 10,
                 right: 10,
                 child: FloatingActionButton(
+                  heroTag: 'add',
                   onPressed: () {
-                    this.addCartItem(CartItem(RangeValues(10, 80), '苹果'));
+                    this.addCartItem(CartItem(Random().nextInt(100), '苹果${Random().nextInt(10)}'));
                   },
+                  tooltip: '修改CartModel,触发notifyListeners',
                   child: Icon(Icons.add),
                 )
             )

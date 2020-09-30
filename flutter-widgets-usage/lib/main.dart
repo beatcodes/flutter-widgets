@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/route/router.gr.dart';
 
 void main() {
-
   runApp(MyApp());
 }
 
