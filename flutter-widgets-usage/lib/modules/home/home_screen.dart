@@ -1,3 +1,6 @@
+
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/route/router.gr.dart';
@@ -27,15 +30,40 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Object> buildListItem () {
+    log('hello', name: "KING-TAG");
     return [
       {
-        "title": "底部导航",
+        "title": "设置页面",
         "nav": Routes.settingScreen
       },
       {
-        "title": "顶部导航",
-        "nav": Routes.settingScreen
-      }
+        "title": "ChangeNotifier测试",
+        "nav": Routes.changeNotifierScreen
+      },
+      {
+        "title": "Consumer测试",
+        "nav": Routes.consumerScreen
+      },
+      {
+        "title": "menu测试",
+        "nav": Routes.menuScreen
+      },
+      {
+        "title": "底部导航测试",
+        "nav": Routes.bottomNavBarScreen
+      },
+      {
+        "title": "顶部导航测试",
+        "nav": Routes.tabBarScreen
+      },
+      {
+        "title": "Dialog测试",
+        "nav": Routes.dialogScreen
+      },
+      {
+        "title": "Form表单测试",
+        "nav": Routes.formScreen
+      },
     ];
   }
 
@@ -57,10 +85,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('首页'),),
       body: ListView.builder(
-        itemCount: _widgetNavList?.length,
-        itemBuilder: (BuildContext context, int index) {
-          return getListTile(index);
-        })
+          itemCount: _widgetNavList?.length,
+          itemBuilder: (BuildContext context, int index) {
+            return getListTile(index);
+          }),
     );
   }
 }
