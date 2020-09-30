@@ -14,13 +14,16 @@ class ConsumerScreen extends StatelessWidget {
         Consumer(builder: (BuildContext context, CartModel cartModel, Widget child) {
           return Text('${cartModel.cartList[cartModel.cartList.length - 1].name}');
         }),
-        Container(
-          margin: EdgeInsets.all(20),
-          width: 200,
-          decoration: BoxDecoration(
-            color: Colors.yellow
+        Opacity(
+          opacity: 0.7,
+          child: Container(
+            margin: EdgeInsets.all(20),
+            width: 200,
+            decoration: BoxDecoration(
+                color: Colors.yellow
+            ),
+            child: Text('使用Provider.of<CartModel>(context), 获取cartItem: name: ${cartItem.name} ,price: ${cartItem.price}'),
           ),
-          child: Text('使用Provider.of<CartModel>(context), 获取cartItem: name: ${cartItem.name} ,price: ${cartItem.price}'),
         )
       ],
     );
